@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815131444) do
+ActiveRecord::Schema.define(version: 20170828171407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20170815131444) do
     t.string "user"
     t.integer "local"
     t.index ["title"], name: "index_keypasses_on_title"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "entity"
+    t.boolean "create", default: false
+    t.boolean "read", default: false
+    t.boolean "update", default: false
+    t.boolean "destroy", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_permissions_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -144,6 +156,7 @@ ActiveRecord::Schema.define(version: 20170815131444) do
   add_foreign_key "incidents", "courses"
   add_foreign_key "incidents", "students"
   add_foreign_key "incidents", "users"
+  add_foreign_key "permissions", "users"
   add_foreign_key "students", "courses"
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "courses"

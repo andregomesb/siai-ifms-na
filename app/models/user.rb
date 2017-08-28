@@ -40,6 +40,7 @@ class User < ApplicationRecord
   delegate :initial, to: :sector, prefix: true
 
   # Associações
+  has_many :permissions
   belongs_to :sector
   belongs_to :position
   belongs_to :course, optional: true
