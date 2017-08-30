@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170828171407) do
     t.integer "is_resolved"
     t.integer "type_student"
     t.integer "sanction"
+    t.integer "school_group"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
@@ -61,10 +62,10 @@ ActiveRecord::Schema.define(version: 20170828171407) do
   create_table "permissions", force: :cascade do |t|
     t.bigint "user_id"
     t.string "entity"
-    t.boolean "create", default: false
-    t.boolean "read", default: false
-    t.boolean "update", default: false
-    t.boolean "destroy", default: false
+    t.boolean "can_create", default: false
+    t.boolean "can_read", default: false
+    t.boolean "can_update", default: false
+    t.boolean "can_destroy", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_permissions_on_user_id"

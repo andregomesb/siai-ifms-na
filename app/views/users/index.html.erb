@@ -42,6 +42,12 @@
               </span>
               <span>Editar</span>
             <% end %>
+            <%= link_to user_permission_index_path(user), class: 'button is-success in-mobile-expand' do %>
+              <span class="icon">
+                <i class="ion-edit"></i>
+              </span>
+              <span>Permissões</span>
+            <% end %>
             <%= link_to user_path(user), method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: 'button is-danger in-mobile-expand', disabled: user.is_current?(current_user) do %>
               <span class="icon">
                 <i class="ion-close"></i>
