@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :permission do
-    user nil
+    user factory: :user
     entity "MyString"
-    create false
-    read false
-    update false
-    destroy false
+    can_create true
+    can_read true
+    can_update true
+    can_destroy true
   end
 end

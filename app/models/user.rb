@@ -45,6 +45,9 @@ class User < ApplicationRecord
   belongs_to :position
   belongs_to :course, optional: true
 
+  # Nested form
+  accepts_nested_attributes_for :permissions
+
   # Atributos para busca com SearchCop
   search_scope :search do
     attributes :name, :email, :siape

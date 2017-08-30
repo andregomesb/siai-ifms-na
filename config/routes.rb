@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # routes
   resources :users, except: [:show] do
     get :change_password
-    resources :permission, except: [:show]
+    resources :permissions, except: [:show]
   end
   resources :sectors, except: [:show] do
     get :actions

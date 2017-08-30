@@ -104,33 +104,6 @@
     </div>
   </fieldset>
 
-  <fieldset>
-    <legend>Permissões</legend>
-    <table class="table is-bordered">
-      <thead>
-        <tr>
-          <th>Modelo</th>
-          <th class="has-text-centered">Create</th>
-          <th class="has-text-centered">Read</th>
-          <th class="has-text-centered">Update</th>
-          <th class="has-text-centered">Destroy</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @models = ApplicationRecord.descendants.map(&:name) %>
-        <% @models.each do |model| %>
-        <tr>
-          <td><%= I18n.t("activerecord.models.#{model.downcase}") %></td>
-          <td class="has-text-centered"><input type="checkbox" name="" checked></td>
-          <td class="has-text-centered"><input type="checkbox" name="" checked></td>
-          <td class="has-text-centered"><input type="checkbox" name="" checked></td>
-          <td class="has-text-centered"><input type="checkbox" name="" checked></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </fieldset>
-
   <div class="margin-top-20px">
     <p class="control">
       <%= f.submit "Salvar", class: "button is-success is-medium in-mobile-expand"%>
