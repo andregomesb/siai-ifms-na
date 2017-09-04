@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170830163201) do
     t.integer "is_resolved"
     t.integer "type_student"
     t.integer "sanction"
+    t.integer "school_group"
     t.index ["course_id"], name: "index_incidents_on_course_id"
     t.index ["date_incident"], name: "index_incidents_on_date_incident"
     t.index ["institution"], name: "index_incidents_on_institution"
